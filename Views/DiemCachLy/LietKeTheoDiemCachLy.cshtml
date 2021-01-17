@@ -1,0 +1,26 @@
+@{
+  ViewData["Title"] = "Liệt kê theo điểm cách ly";
+}
+
+@model List<CongNhan>
+<div class="row">
+  <div class="col-lg-12">
+    <table>
+      <thead>
+        <th>Mã công nhân</th>
+        <th>Tên công nhân</th>
+        <th>Chức năng</th>
+      </thead>
+      <tbody>
+        @foreach (var data in Model)
+        {
+          <tr>
+            <td>@data.MaCongNhan</td>
+            <td>@data.TenCongNhan</td>
+            <td><a>Delete</a><a>View</a></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

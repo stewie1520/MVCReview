@@ -1,0 +1,40 @@
+@{
+  ViewData["Title"] = "Điểm cách ly";
+}
+
+@model DiemCachLy
+
+<div class="row">
+  <div class="col-lg-12">
+    <form asp-action="InsertDiemCachLy" method="post">
+      <table>
+        <tbody>
+          <tr>
+            <td>Mã điểm cách ly</td>
+            <td>
+              <input asp-for="MaDiemCachLy" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Tên điểm cách ly</td>
+            <td>
+              <input asp-for="TenDiemCachLy" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td>Địa chỉ</td>
+            <td>
+              <input asp-for="DiaChi" class="form-control" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button type="submit" class="btn btn-success">Thêm</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>

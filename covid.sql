@@ -1,0 +1,32 @@
+CREATE TABLE DiemCachLy
+(
+  MaDiemCachLy INT PRIMARY KEY,
+  TenDiemCachLy NVARCHAR(100),
+  DiaChi NVARCHAR(100)
+);
+
+CREATE TABLE TrieuChung
+(
+  MaTrieuChung INT PRIMARY KEY,
+  TenTrieuChung NVARCHAR(100)
+);
+
+CREATE TABLE CongNhan
+(
+  MaCongNhan INT PRIMARY KEY,
+  TenCongNhan NVARCHAR(100),
+  GioiTinh BIT,
+  NamSinh DATE,
+  NuocVe VARCHAR(40),
+  MaDiemCachLy INT,
+  CONSTRAINT FK_CONGNHAN_DIEMCACHLY FOREIGN KEY (MaDiemCachLy) REFERENCES DiemCachLy(MaDiemCachLy)
+);
+
+CREATE TABLE CN_TC
+(
+  MaCongNhan INTEGER,
+  MaTrieuChung INTEGER,
+  PRIMARY KEY (MaCongNhan, MaTrieuChung),
+  CONSTRAINT FK_CNTC_CONGNHAN FOREIGN KEY (MaCongNhan) REFERENCES CongNhan(MaCongNhan),
+  CONSTRAINT FK_CNTC_TrieuChung FOREIGN KEY (MaTrieuChung) REFERENCES TrieuChung(MaTrieuChung),
+);

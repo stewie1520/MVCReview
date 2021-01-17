@@ -26,10 +26,7 @@ namespace MVCReview
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<DataContext>(dbContextOptionBuilder =>
-            {
-                dbContextOptionBuilder.UseSqlServer(Configuration["MvcReview:ConnectionString"]);
-            });
+            services.Add(new ServiceDescriptor(typeof(DataContext), new DataContext(Configuration["MvcReview:ConnectionString"])));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,27 @@
+@model IEnumerable<CongNhanSoTrieuChung>
+@{
+  ViewData["title"] = "Liệt kê";
+}
+<div class="row">
+  <div class="col-lg-12">
+    <table>
+      <thead>
+        <th>Tên công nhân</th>
+        <th>Năm sinh</th>
+        <th>Nước về</th>
+        <th>Số triệu chứng</th>
+      </thead>
+      <tbody>
+        @foreach (var data in Model)
+        {
+          <tr>
+            <td>@data.TenCongNhan</td>
+            <td>@data.NamSinh</td>
+            <td>@data.NuocVe</td>
+            <td>@data.SoTrieuChung</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
